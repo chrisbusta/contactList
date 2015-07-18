@@ -11,6 +11,7 @@ var Books = Backbone.Collection.extend({
   model: Book,
   comparator: 'title',
   // localStorage: new Backbone.LocalStorage("BookCollection")
+  url: 'http://tiy-515.herokuapp.com/collections/chrisbusta',
 });
 
 // Views - Form Actions
@@ -68,4 +69,34 @@ var BookView = Backbone.View.extend({
     console.log(this.model.toJSON());
     return this;
   },
-//
+  events: {
+    'click a.edit': 'editContact',
+    'click a.delete': 'deleteContact'
+  },
+  editContact: function() {
+    console.log(this.model.toJSON());
+  },
+  deleteContact: function() {
+    this.model.destroy();
+  }
+});
+
+
+
+// create an instance of the model
+var books = new Books();
+
+// sampe data
+books.add({ title: "Dandelion Wine", author: "Ray Bradbury", year: 2001 });
+books.add({ title: "The Electric Kool-aid Acid Test", author: "Tom Wolfe", year: 2011 });
+books.add({ title: "Henry & June", author: "Anais Nin", year: 2021 });
+books.add({ title: "Cooked", author: "Michael Pollan", year: 2001 });
+books.add({ title: "Sweet Dreams", author: "John Dennett", year: 2009 });
+books.add({ title: "Kitchen Confidential", author: "Anthony Bourdain", year: 2008 });
+
+// create a view instance of the collection
+// create view after data to keep data sorted
+var allBooksView = new BooksView({ collection: books }).render();
+$('#allBooks').append(allBooksView.el);
+
+var addBooksView = new AddBookView({ collection: books });
