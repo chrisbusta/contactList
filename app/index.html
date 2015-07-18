@@ -4,6 +4,7 @@
   <title>Project Name</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/vendor/normalize.css">
+  <link rel="stylesheet" href="css/vendor/font-awesome.css">
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
@@ -11,18 +12,18 @@
   <div class="container">
   <div class="wrap">
   <h3>Contact List</h3>
-  <form action="" id="addBook">
-    <input id="book_title" type="text" placeholder="Book Title" class="form-input"><!-- </input> -->
-    <input id="book_author" type="text" placeholder="Book Author" class="form-input"><!-- </input> -->
-    <input id="book_year" type="text" placeholder="Year Published" class="form-input" />
+  <form action="" id="addContacts">
+    <input id="first_last" type="text" placeholder="Name" class="form-input"><!-- </input> -->
+    <input id="email" type="text" placeholder="Email" class="form-input"><!-- </input> -->
+    <input id="phone_number" type="text" placeholder="Phone Number" class="form-input" />
     <button type="submit" class="form-button">Submit</button>
   </form>
-  <table id="allBooks" class="table">
+  <table id="allContacts" class="table">
     <thead>
       <tr>
         <th>First & Last Name</th>
-        <th>Author</th>
-        <th>Year</th>
+        <th>Email</th>
+        <th>Phone Number</th>
         <th colspan="2">Actions</th>
       </tr>
     </thead>
@@ -30,10 +31,10 @@
 </div>
 
 
-<script id="bookTemplate" type="text/template">
-    <td><span id="title"><%= title %></span></td>
-    <td><span id="author"><%= author %></span></td>
-    <td><span id="year"><%= year %></span></td>
+<script id="contactTemplate" type="text/template">
+    <td><span id="name"><%= name %></span></td>
+    <td><span id="email"><%= email %></span></td>
+    <td><span id="phone"><%= phone %></span></td>
 
     <td><a href="#" class="edit"><span>Edit</span></a></td>
     <td><a href="#" class="delete"><span>Delete</span></a></td>

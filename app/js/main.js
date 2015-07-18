@@ -9,32 +9,32 @@ var Book = Backbone.Model.extend({});
 // Collections
 var Books = Backbone.Collection.extend({
   model: Book,
-  comparator: 'title',
-  // localStorage: new Backbone.LocalStorage("BookCollection")
+  comparator: 'name',
+
   url: 'http://tiy-515.herokuapp.com/collections/chrisbusta',
 });
 
 // Views - Form Actions
 var AddBookView = Backbone.View.extend({
-  el: '#addBook',
+  el: '#addContacts',
   events: {
-    'submit': 'addBook'
+    'submit': 'addContacts'
   },
-  addBook: function(e) {
+  addContacts: function(e) {
     e.preventDefault();
 
     this.collection.create({
-      title: this.$('#book_title').val(),
-      author: this.$('#book_author').val(),
-      year: this.$('#book_year').val()
+      name: this.$('#first_last').val(),
+      email: this.$('#email').val(),
+      phone: this.$('#phone_number').val()
     }, { wait: true });
 
     this.clearForm();
   },
   clearForm: function() {
-    this.$('#book_title').val(''),
-    this.$('#book_author').val(''),
-    this.$('#book_year').val('');
+    this.$('#first_last').val(''),
+    this.$('#email').val(''),
+    this.$('#phone_number').val('');
   }
 });
 
@@ -56,7 +56,7 @@ var BooksView = Backbone.View.extend({
 
 var BookView = Backbone.View.extend({
   tagName: 'tr',
-  template: template('bookTemplate'),
+  template: template('contactTemplate'),
   initialize: function() {
     // Leaky method?:
     // this.model.on('destroy', this.unrender, this);
@@ -86,17 +86,16 @@ var BookView = Backbone.View.extend({
 // create an instance of the model
 var books = new Books();
 
-// sampe data
-books.add({ title: "Dandelion Wine", author: "Ray Bradbury", year: 2001 });
-books.add({ title: "The Electric Kool-aid Acid Test", author: "Tom Wolfe", year: 2011 });
-books.add({ title: "Henry & June", author: "Anais Nin", year: 2021 });
-books.add({ title: "Cooked", author: "Michael Pollan", year: 2001 });
-books.add({ title: "Sweet Dreams", author: "John Dennett", year: 2009 });
-books.add({ title: "Kitchen Confidential", author: "Anthony Bourdain", year: 2008 });
+// sample data
+books.add({ name: "Christian Bustamante", email: "chrisbusta@hotmail.com", phone: 770-355-6211 });
+books.add({ name: "Linda Bustamante", email: "", phone: 2011 });
+books.add({ name: "Alexander Bustamante", email: "alexander@gmail.com", phone: 2021 });
+books.add({ name: "Gloria Bustamante", email: "", phone: 2001 });
+
 
 // create a view instance of the collection
 // create view after data to keep data sorted
 var allBooksView = new BooksView({ collection: books }).render();
-$('#allBooks').append(allBooksView.el);
+$('#allContacts').append(allBooksView.el);
 
 var addBooksView = new AddBookView({ collection: books });
