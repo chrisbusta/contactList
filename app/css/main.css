@@ -1,0 +1,32 @@
+.wrap {
+  width: 70%;
+  margin: 2vw auto; }
+
+form {
+  display: flex; }
+  form input[type="text"] {
+    width: 20%;
+    margin-bottom: 0;
+    margin-left: 1em; }
+  form input:first-of-type {
+    margin-left: 0em;
+    width: 40%; }
+  form .form-button {
+    width: 20%;
+    font-size: 0.875rem;
+    padding: 10.5px 2vw;
+    margin-left: 1em;
+    margin-bottom: 0; }
+
+table {
+  width: 100%; }
+
+@media (max-width: 480px) {
+  .wrap {
+    width: 95%; }
+  form {
+    display: block; }
+    form input[type="text"], form input[type="date"], form .form-button {
+      min-width: 100%;
+      margin-left: 0;
+      margin-bottom: .5em; } }

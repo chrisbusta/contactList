@@ -8,7 +8,36 @@
 </head>
 <body>
 
-  <div class="container">
+<!--   <div class="container">
+ -->  <div class="wrap">
+  <h3>Contact List</h3>
+  <form action="" id="addBook">
+    <input id="book_title" type="text" placeholder="Book Title" class="form-input"></input>
+    <input id="book_author" type="text" placeholder="Book Author" class="form-input"></input>
+    <input id="book_year" type="text" placeholder="Year Published" class="form-input" />
+    <button type="submit" class="form-button">Submit</button>
+  </form>
+  <table id="allBooks" class="table">
+    <thead>
+      <tr>
+        <th>First & Last Name</th>
+        <th>Author</th>
+        <th>Year</th>
+        <th colspan="2">Actions</th>
+      </tr>
+    </thead>
+  </table>
+</div>
+
+
+<script id="bookTemplate" type="text/template">
+    <td><span id="title"><%= title %></span></td>
+    <td><span id="author"><%= author %></span></td>
+    <td><span id="year"><%= year %></span></td>
+
+    <td><a href="#" class="edit"><span>Edit</span></a></td>
+    <td><a href="#" class="delete"><span>Delete</span></a></td>
+</script>
 
   </div>
 
@@ -16,6 +45,7 @@
   <script src="js/vendor/jquery.js"></script>
   <script src="js/vendor/underscore.js"></script>
   <script src="js/vendor/handlebars.js"></script>
+  <script src="js/vendor/backbone.js"></script>
   <!-- TEMPLATES -->
   <script src="js/templates.js"></script>
   <!-- MAIN -->
