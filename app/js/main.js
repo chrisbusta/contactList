@@ -31,7 +31,11 @@ var AddContactView = Backbone.View.extend({
 
     this.clearForm();
   },
-
+clearForm: function() {
+    this.$('#first_last').val(''),
+    this.$('#email').val(''),
+    this.$('#phone_number').val('');
+  }
 });
 
 // Views - Contacts
@@ -65,7 +69,7 @@ var ContactView = Backbone.View.extend({
     return this;
   },
   events: {
-    'click a.edit': 'editContact',
+
     'click a.delete': 'deleteContact'
   },
 
