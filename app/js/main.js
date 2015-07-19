@@ -34,7 +34,7 @@ var AddContactView = Backbone.View.extend({
 
 });
 
-// Views - Books
+// Views - Contacts
 var ContactsView = Backbone.View.extend({
   tagName: 'tbody',
   initialize: function() {
@@ -68,9 +68,7 @@ var ContactView = Backbone.View.extend({
     'click a.edit': 'editContact',
     'click a.delete': 'deleteContact'
   },
-  editContact: function() {
-    console.log(this.model.toJSON());
-  },
+
   deleteContact: function() {
     this.model.destroy();
   }
