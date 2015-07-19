@@ -4,18 +4,18 @@ var template = function(id) {
 };
 
 // Models
-var Book = Backbone.Model.extend({});
+var Contact = Backbone.Model.extend({});
 
 // Collections
-var Books = Backbone.Collection.extend({
-  model: Book,
+var Contacts = Backbone.Collection.extend({
+  model: Contact,
   comparator: 'name',
 
   url: 'http://tiy-515.herokuapp.com/collections/chrisbusta',
 });
 
 // Views - Form Actions
-var AddBookView = Backbone.View.extend({
+var AddContactView = Backbone.View.extend({
   el: '#addContacts',
   events: {
     'submit': 'addContacts'
@@ -39,7 +39,7 @@ var AddBookView = Backbone.View.extend({
 });
 
 // Views - Books
-var BooksView = Backbone.View.extend({
+var ContactsView = Backbone.View.extend({
   tagName: 'tbody',
   initialize: function() {
     this.collection.on('add', this.addOne, this);
@@ -49,17 +49,16 @@ var BooksView = Backbone.View.extend({
     return this;
   },
   addOne: function(book) {
-    var bookView = new BookView({ model: book });
-    this.$el.append(bookView.render().el);
+    var contactView = new ContactView({ model: book });
+    this.$el.append(contactView.render().el);
   }
 });
 
-var BookView = Backbone.View.extend({
+var ContactView = Backbone.View.extend({
   tagName: 'tr',
   template: template('contactTemplate'),
   initialize: function() {
-    // Leaky method?:
-    // this.model.on('destroy', this.unrender, this);
+
 
     // New method:
     this.listenTo(this.model, 'destroy', this.remove);
@@ -84,18 +83,18 @@ var BookView = Backbone.View.extend({
 
 
 // create an instance of the model
-var books = new Books();
+var contacts = new Contacts();
 
 // sample data
-books.add({ name: "Christian Bustamante", email: "chrisbusta@hotmail.com", phone: 770-355-6211 });
-books.add({ name: "Linda Bustamante", email: "", phone: 2011 });
-books.add({ name: "Alexander Bustamante", email: "alexander@gmail.com", phone: 2021 });
-books.add({ name: "Gloria Bustamante", email: "", phone: 2001 });
+contacts.add({ name: "Christian Bustamante", email: "chrisbusta@hotmail.com", phone: 7703556211 });
+contacts.add({ name: "Linda Bustamante", email: "mathewsL@hotmail.com", phone: 4049931502 });
+contacts.add({ name: "Alexander Bustamante", email: "alexander@gmail.com", phone: 7703556212 });
+contacts.add({ name: "Gloria Bustamante", email: "gloria@gmail.com", phone: 7062161909 });
 
 
 // create a view instance of the collection
 // create view after data to keep data sorted
-var allBooksView = new BooksView({ collection: books }).render();
-$('#allContacts').append(allBooksView.el);
+var allContactsView = new ContactsView({ collection: contacts }).render();
+$('#allContacts').append(allContactsView.el);
 
-var addBooksView = new AddBookView({ collection: books });
+var addContactsView = new AddContactView({ collection: contacts });
