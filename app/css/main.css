@@ -1,10 +1,11 @@
 body {
-  background-color: #000000; }
+  background-color: #C3C3C3; }
 
 .container {
-  background-color: #7BACD0;
+  background-color: #BF0E14;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  height: 500px; }
 
 .wrap {
   width: 70%;
@@ -30,6 +31,13 @@ form {
     padding: 10.5px 2vw;
     margin-left: 1em;
     margin-bottom: 0; }
+
+span {
+  color: #C3C3C3; }
+
+th {
+  margin-left: 50%;
+  text-align: -webkit-left; }
 
 table {
   width: 100%; }

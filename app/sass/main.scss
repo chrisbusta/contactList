@@ -1,11 +1,12 @@
 body {
-  background-color: #000000;
+  background-color: #C3C3C3;
 }
 
 .container {
-  background-color: #7BACD0;
+  background-color: #BF0E14;
   margin-left: auto;
   margin-right: auto;
+  height: 500px;
 }
 
 .wrap {
@@ -40,6 +41,16 @@ form {
     margin-bottom: 0;
   }
 }
+   span {
+    color: #C3C3C3;
+  }
+
+  th {
+    margin-left: 50%;
+    text-align: -webkit-left;
+
+
+  }
 
 table {
   width: 100%;
