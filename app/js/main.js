@@ -31,11 +31,7 @@ var AddContactView = Backbone.View.extend({
 
     this.clearForm();
   },
-  clearForm: function() {
-    this.$('#first_last').val(''),
-    this.$('#email').val(''),
-    this.$('#phone_number').val('');
-  }
+
 });
 
 // Views - Books
@@ -48,8 +44,8 @@ var ContactsView = Backbone.View.extend({
     this.collection.each(this.addOne, this);
     return this;
   },
-  addOne: function(book) {
-    var contactView = new ContactView({ model: book });
+  addOne: function(contact) {
+    var contactView = new ContactView({ model: contact });
     this.$el.append(contactView.render().el);
   }
 });
